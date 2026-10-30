@@ -1,0 +1,258 @@
+{
+  "generated_at_utc": "2026-10-29 15:49:41.007877+00:00",
+  "action": "all",
+  "load": {
+    "sampled_customers": 1702,
+    "sampled_transactions": 5000
+  },
+  "crud": {
+    "insert_one": 1,
+    "insert_many": 2,
+    "find": [
+      {
+        "transaction_id": "DEMO_CRUD_001",
+        "transaction_amount": 123.45,
+        "merchant_category": "demo"
+      },
+      {
+        "transaction_id": "DEMO_CRUD_002",
+        "transaction_amount": 20.0,
+        "merchant_category": "demo"
+      },
+      {
+        "transaction_id": "DEMO_CRUD_003",
+        "transaction_amount": 30.0,
+        "merchant_category": "demo"
+      }
+    ],
+    "update_many_matched": 3,
+    "update_many_modified": 3,
+    "delete_one": 1
+  },
+  "explain": {
+    "query": {
+      "customer_id": "C_13ef972d46413182",
+      "transaction_time": {
+        "$gte": "2026-01-21 05:45:17.838000+00:00",
+        "$lte": "2026-01-22 05:45:17.838000+00:00"
+      }
+    },
+    "before": {
+      "winningPlan": {
+        "isCached": false,
+        "stage": "COLLSCAN",
+        "filter": {
+          "$and": [
+            {
+              "customer_id": {
+                "$eq": "C_13ef972d46413182"
+              }
+            },
+            {
+              "transaction_time": {
+                "$lte": "2026-01-22 05:45:17.838000+00:00"
+              }
+            },
+            {
+              "transaction_time": {
+                "$gte": "2026-01-21 05:45:17.838000+00:00"
+              }
+            }
+          ]
+        },
+        "direction": "forward"
+      },
+      "nReturned": 1,
+      "totalDocsExamined": 5000,
+      "totalKeysExamined": 0,
+      "executionTimeMillis": 4
+    },
+    "after": {
+      "winningPlan": {
+        "isCached": false,
+        "stage": "FETCH",
+        "inputStage": {
+          "stage": "IXSCAN",
+          "keyPattern": {
+            "customer_id": 1,
+            "transaction_time": -1
+          },
+          "indexName": "customer_time_idx",
+          "isMultiKey": false,
+          "multiKeyPaths": {
+            "customer_id": [],
+            "transaction_time": []
+          },
+          "isUnique": false,
+          "isSparse": false,
+          "isPartial": false,
+          "indexVersion": 2,
+          "direction": "forward",
+          "indexBounds": {
+            "customer_id": [
+              "[\"C_13ef972d46413182\", \"C_13ef972d46413182\"]"
+            ],
+            "transaction_time": [
+              "[new Date(1769060717838), new Date(1768974317838)]"
+            ]
+          }
+        }
+      },
+      "nReturned": 1,
+      "totalDocsExamined": 1,
+      "totalKeysExamined": 1,
+      "executionTimeMillis": 1
+    }
+  },
+  "aggregations": {
+    "fraud_by_category": [
+      {
+        "_id": "gaming",
+        "total_transactions": 467,
+        "fraud_transactions": 10,
+        "fraud_rate": 0.021413276231263382
+      },
+      {
+        "_id": "gift_cards",
+        "total_transactions": 349,
+        "fraud_transactions": 6,
+        "fraud_rate": 0.017191977077363897
+      },
+      {
+        "_id": "electronics",
+        "total_transactions": 625,
+        "fraud_transactions": 10,
+        "fraud_rate": 0.016
+      },
+      {
+        "_id": "education",
+        "total_transactions": 257,
+        "fraud_transactions": 0,
+        "fraud_rate": 0.0
+      },
+      {
+        "_id": "food",
+        "total_transactions": 683,
+        "fraud_transactions": 0,
+        "fraud_rate": 0.0
+      },
+      {
+        "_id": "grocery",
+        "total_transactions": 842,
+        "fraud_transactions": 0,
+        "fraud_rate": 0.0
+      },
+      {
+        "_id": "healthcare",
+        "total_transactions": 395,
+        "fraud_transactions": 0,
+        "fraud_rate": 0.0
+      },
+      {
+        "_id": "other",
+        "total_transactions": 312,
+        "fraud_transactions": 0,
+        "fraud_rate": 0.0
+      },
+      {
+        "_id": "quick_commerce",
+        "total_transactions": 728,
+        "fraud_transactions": 0,
+        "fraud_rate": 0.0
+      },
+      {
+        "_id": "travel",
+        "total_transactions": 342,
+        "fraud_transactions": 0,
+        "fraud_rate": 0.0
+      }
+    ],
+    "top_customers_last_24h": [
+      {
+        "_id": "C_2874214784bbe319",
+        "transaction_count": 2,
+        "total_amount_paise": 751806555,
+        "last_activity": "2026-01-19 12:34:46.293000+00:00",
+        "total_amount_inr": 7518065.55,
+        "window_start": "2026-01-18 12:34:46.293000+00:00"
+      },
+      {
+        "_id": "C_13ef972d46413182",
+        "transaction_count": 1,
+        "total_amount_paise": 432096604,
+        "last_activity": "2026-01-22 05:45:17.838000+00:00",
+        "total_amount_inr": 4320966.04,
+        "window_start": "2026-01-21 05:45:17.838000+00:00"
+      },
+      {
+        "_id": "C_0150e2b2e167bfba",
+        "transaction_count": 8,
+        "total_amount_paise": 27021708,
+        "last_activity": "2026-01-21 11:46:15.784000+00:00",
+        "total_amount_inr": 270217.08,
+        "window_start": "2026-01-20 11:46:15.784000+00:00"
+      },
+      {
+        "_id": "C_623bb7fcd41fce00",
+        "transaction_count": 5,
+        "total_amount_paise": 18898028,
+        "last_activity": "2026-01-02 19:40:46.154000+00:00",
+        "total_amount_inr": 188980.28,
+        "window_start": "2026-01-01 19:40:46.154000+00:00"
+      },
+      {
+        "_id": "C_d7db85b2d458243b",
+        "transaction_count": 9,
+        "total_amount_paise": 13821908,
+        "last_activity": "2026-01-22 05:32:54.574000+00:00",
+        "total_amount_inr": 138219.08,
+        "window_start": "2026-01-21 05:32:54.574000+00:00"
+      },
+      {
+        "_id": "C_ca1e48e7d9f34049",
+        "transaction_count": 8,
+        "total_amount_paise": 11637324,
+        "last_activity": "2026-01-10 19:45:23.664000+00:00",
+        "total_amount_inr": 116373.24,
+        "window_start": "2026-01-09 19:45:23.664000+00:00"
+      },
+      {
+        "_id": "C_ec383adc69c62264",
+        "transaction_count": 8,
+        "total_amount_paise": 11619707,
+        "last_activity": "2026-01-21 20:07:52.288000+00:00",
+        "total_amount_inr": 116197.07,
+        "window_start": "2026-01-20 20:07:52.288000+00:00"
+      },
+      {
+        "_id": "C_f7bb6784f531bb93",
+        "transaction_count": 7,
+        "total_amount_paise": 10489206,
+        "last_activity": "2026-01-12 20:38:45.315000+00:00",
+        "total_amount_inr": 104892.06,
+        "window_start": "2026-01-11 20:38:45.315000+00:00"
+      },
+      {
+        "_id": "C_54f34f5ba61f0d0b",
+        "transaction_count": 9,
+        "total_amount_paise": 7762922,
+        "last_activity": "2026-01-17 15:06:52.128000+00:00",
+        "total_amount_inr": 77629.22,
+        "window_start": "2026-01-16 15:06:52.128000+00:00"
+      },
+      {
+        "_id": "C_083f2888db375225",
+        "transaction_count": 5,
+        "total_amount_paise": 7258127,
+        "last_activity": "2026-01-04 22:54:18.659000+00:00",
+        "total_amount_inr": 72581.27,
+        "window_start": "2026-01-03 22:54:18.659000+00:00"
+      }
+    ]
+  },
+  "counts": {
+    "customers": 1702,
+    "transactions": 5000
+  },
+  "remaining_demo_transactions": 0
+}

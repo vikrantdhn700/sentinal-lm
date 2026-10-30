@@ -1,0 +1,26 @@
+test_customer_device_deduplication_and_transaction_joins
+(test_assignment.DocumentPreparationTests.test_customer_device_deduplication_and_transaction_joins) ... ok
+
+test_minimum_sample_and_short_source_are_rejected
+(test_assignment.DocumentPreparationTests.test_minimum_sample_and_short_source_are_rejected) ... ok
+test_missing_labels_fail_before_any_database_write
+(test_assignment.DocumentPreparationTests.test_missing_labels_fail_before_any_database_write) ... ok
+test_gzip_csv_reader_uses_schema_and_reports_missing_tables
+(test_assignment.SourceParsingTests.test_gzip_csv_reader_uses_schema_and_reports_missing_tables) ... ok
+test_schema_types_keep_ids_but_convert_labels_and_money
+(test_assignment.SourceParsingTests.test_schema_types_keep_ids_but_convert_labels_and_money) ... ok
+test_timestamps_normalize_to_utc_and_reject_invalid_dates
+(test_assignment.SourceParsingTests.test_timestamps_normalize_to_utc_and_reject_invalid_dates) ... ok
+test_customer_pipeline_matches_independent_python_windows
+(test_atlas.AtlasAggregationTests.test_customer_pipeline_matches_independent_python_windows) ... ok
+test_exact_24_hour_boundary_and_different_customer_activity_dates
+(test_atlas.AtlasAggregationTests.test_exact_24_hour_boundary_and_different_customer_activity_dates) ... ok
+test_fraud_pipeline_matches_independent_python_calculation
+(test_atlas.AtlasAggregationTests.test_fraud_pipeline_matches_independent_python_calculation) ... ok
+test_loaded_documents_have_required_bson_types_and_references
+(test_atlas.AtlasAggregationTests.test_loaded_documents_have_required_bson_types_and_references) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 10.283s
+
+OK
